@@ -24,46 +24,44 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack(path: $path) {
-            NavigationView {
-                VStack(spacing: 30) {
-                    Button("Modal") {
-                        isModalPresented.toggle()
-                    }
-                    
-                    Button("Sub") {
-                        path.append(.sub)
-                    }
-                    
-                    Button("Extra") {
-                        path.append(.extra)
-                    }
-                    
-                    Button("BottomSheet") {
-                        isBottomSheetPresented.toggle()
-                    }
+            VStack(spacing: 30) {
+                Button("Modal") {
+                    isModalPresented.toggle()
                 }
-                .navigationDestination(for: Navigation.self, destination: { navi in
-                    switch navi {
-                    case .sub: SubView()
-                    case .extra: ExtraView()
-                    }
-                })
+                
+                Button("Sub") {
+                    path.append(.sub)
+                }
+                
+                Button("Extra") {
+                    path.append(.extra)
+                }
+                
+                Button("BottomSheet") {
+                    isBottomSheetPresented.toggle()
+                }
             }
-            .fullScreenCover(isPresented: $isModalPresented, content: {
-                ModalView()
-            })
-            .sheet(isPresented: $isBottomSheetPresented, content: {
-                BottomSheetView(moveToOther: moveToOther)
-                    .presentationDetents([.fraction(0.5)])
-                    .presentationDragIndicator(.visible)
-            })
-            .onReceive(moveToOther.eraseToAnyPublisher(), perform: { navi in
+            .navigationDestination(for: Navigation.self, destination: { navi in
                 switch navi {
-                case .sub: path.append(.sub)
-                case .extra: path.append(.extra)
+                case .sub: SubView()
+                case .extra: ExtraView()
                 }
             })
         }
+        .fullScreenCover(isPresented: $isModalPresented, content: {
+            ModalView()
+        })
+        .sheet(isPresented: $isBottomSheetPresented, content: {
+            BottomSheetView(moveToOther: moveToOther)
+                .presentationDetents([.fraction(0.5)])
+                .presentationDragIndicator(.visible)
+        })
+        .onReceive(moveToOther.eraseToAnyPublisher(), perform: { navi in
+            switch navi {
+            case .sub: path.append(.sub)
+            case .extra: path.append(.extra)
+            }
+        })
     }
 }
 
