@@ -23,23 +23,24 @@ struct ModalView: View {
     @State var path: [Navigation] = []
     
     var body: some View {
-//        NavigationStack(path: $path) {
-        NavigationView {
-            ZStack {
-                switch viewType {
-                case .first:
-                    firstView()
-                case .second:
-                    secondView()
+        NavigationStack(path: $path) {
+            NavigationView {
+                ZStack {
+                    switch viewType {
+                    case .first:
+                        firstView()
+                    case .second:
+                        secondView()
+                    }
+                    
+                    navigationBar()
                 }
-                
-                navigationBar()
+                .navigationDestination(for: Navigation.self) { navi in
+                    switch navi {
+                    case .modalSub: ModalSubView()
+                    }
+                }
             }
-//            .navigationDestination(for: Navigation.self) { navi in
-//                switch navi {
-//                case .modalSub: ModalSubView()
-//                }
-//            }
         }
     }
 }
