@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E208B81B2B181E8100C7D49A /* ExtraSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E208B81A2B181E8100C7D49A /* ExtraSubView.swift */; };
+		E208B81D2B181EBC00C7D49A /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E208B81C2B181EBC00C7D49A /* ContainerView.swift */; };
+		E208B81F2B1844E400C7D49A /* ClearBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E208B81E2B1844E400C7D49A /* ClearBackgroundView.swift */; };
+		E208B8212B18493300C7D49A /* ModalExtraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E208B8202B18493300C7D49A /* ModalExtraView.swift */; };
 		E24FE0312B0D934C002061FB /* Navigation_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24FE0302B0D934C002061FB /* Navigation_SwiftUIApp.swift */; };
 		E24FE0332B0D934C002061FB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24FE0322B0D934C002061FB /* ContentView.swift */; };
 		E24FE0352B0D934E002061FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E24FE0342B0D934E002061FB /* Assets.xcassets */; };
@@ -19,6 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E208B81A2B181E8100C7D49A /* ExtraSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraSubView.swift; sourceTree = "<group>"; };
+		E208B81C2B181EBC00C7D49A /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
+		E208B81E2B1844E400C7D49A /* ClearBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearBackgroundView.swift; sourceTree = "<group>"; };
+		E208B8202B18493300C7D49A /* ModalExtraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalExtraView.swift; sourceTree = "<group>"; };
 		E24FE02D2B0D934C002061FB /* Navigation-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Navigation-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E24FE0302B0D934C002061FB /* Navigation_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation_SwiftUIApp.swift; sourceTree = "<group>"; };
 		E24FE0322B0D934C002061FB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -42,6 +50,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E208B8222B18494A00C7D49A /* Extra */ = {
+			isa = PBXGroup;
+			children = (
+				E208B8202B18493300C7D49A /* ModalExtraView.swift */,
+				E208B81E2B1844E400C7D49A /* ClearBackgroundView.swift */,
+				E208B81C2B181EBC00C7D49A /* ContainerView.swift */,
+				E208B81A2B181E8100C7D49A /* ExtraSubView.swift */,
+			);
+			path = Extra;
+			sourceTree = "<group>";
+		};
+		E208B8232B18496700C7D49A /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				E24FE0322B0D934C002061FB /* ContentView.swift */,
+				E24FE0462B0DD9DE002061FB /* ExtraView.swift */,
+				E24FE0422B0D965D002061FB /* BottomSheetView.swift */,
+				E24FE03E2B0D94AB002061FB /* SubView.swift */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
 		E24FE0242B0D934C002061FB = {
 			isa = PBXGroup;
 			children = (
@@ -61,13 +91,11 @@
 		E24FE02F2B0D934C002061FB /* Navigation-SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				E208B8232B18496700C7D49A /* Content */,
+				E208B8222B18494A00C7D49A /* Extra */,
 				E24FE0492B0DDEB5002061FB /* Modal */,
 				E24FE0482B0DDEAA002061FB /* Resource */,
 				E24FE0302B0D934C002061FB /* Navigation_SwiftUIApp.swift */,
-				E24FE0322B0D934C002061FB /* ContentView.swift */,
-				E24FE0462B0DD9DE002061FB /* ExtraView.swift */,
-				E24FE0422B0D965D002061FB /* BottomSheetView.swift */,
-				E24FE03E2B0D94AB002061FB /* SubView.swift */,
 			);
 			path = "Navigation-SwiftUI";
 			sourceTree = "<group>";
@@ -170,10 +198,14 @@
 			files = (
 				E24FE03F2B0D94AB002061FB /* SubView.swift in Sources */,
 				E24FE0452B0DD370002061FB /* ModalSubView.swift in Sources */,
+				E208B81D2B181EBC00C7D49A /* ContainerView.swift in Sources */,
+				E208B8212B18493300C7D49A /* ModalExtraView.swift in Sources */,
 				E24FE0432B0D965D002061FB /* BottomSheetView.swift in Sources */,
 				E24FE0472B0DD9DE002061FB /* ExtraView.swift in Sources */,
 				E24FE0332B0D934C002061FB /* ContentView.swift in Sources */,
+				E208B81F2B1844E400C7D49A /* ClearBackgroundView.swift in Sources */,
 				E24FE0412B0D9623002061FB /* ModalView.swift in Sources */,
+				E208B81B2B181E8100C7D49A /* ExtraSubView.swift in Sources */,
 				E24FE0312B0D934C002061FB /* Navigation_SwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

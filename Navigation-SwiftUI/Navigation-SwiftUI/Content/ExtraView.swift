@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ExtraView: View {
-    enum Navigation: Hashable {
+    
+    enum Navigation {
         case sub
     }
     
@@ -31,8 +33,4 @@ struct ExtraView: View {
             }
         }
     }
-}
-
-#Preview {
-    ExtraView()
 }

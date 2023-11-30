@@ -17,6 +17,7 @@ struct ContentView: View {
     
     @State var isModalPresented: Bool = false
     @State var isBottomSheetPresented: Bool = false
+    @State var isExtraPresented: Bool = false
     @State var path: [Navigation] = []
     @State var text: String = "test"
     
@@ -33,12 +34,18 @@ struct ContentView: View {
                     path.append(.sub)
                 }
                 
-                Button("Extra") {
+                Button("BottomSheet") {
+                    isBottomSheetPresented.toggle()
+                }
+                
+                Button("Extra(💥)") {
                     path.append(.extra)
                 }
                 
-                Button("BottomSheet") {
-                    isBottomSheetPresented.toggle()
+                Button("NavigationStack 위에 NavigationStack") {
+                    withOutAnimation {
+                        isExtraPresented.toggle()
+                    }
                 }
             }
             .navigationDestination(for: Navigation.self, destination: { navi in
@@ -48,6 +55,13 @@ struct ContentView: View {
                 }
             })
         }
+        .onChange(of: path, perform: {
+            print("contentView path: \($0)")
+        })
+        .fullScreenCover(isPresented: $isExtraPresented, content: {
+            ContainerView()
+                .setBackgroundClear()
+        })
         .fullScreenCover(isPresented: $isModalPresented, content: {
             ModalView()
         })
@@ -62,6 +76,16 @@ struct ContentView: View {
             case .extra: path.append(.extra)
             }
         })
+    }
+}
+
+extension View {
+    func withOutAnimation(action: @escaping () -> Void) {
+        var transaction = Transaction()
+        transaction.disablesAnimations = true
+        withTransaction(transaction) {
+            action()
+        }
     }
 }
 
